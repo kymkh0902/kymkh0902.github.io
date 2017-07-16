@@ -7,9 +7,9 @@ subheadline: ""
 title: ""
 teaser: ""
 categories:
-  - 
+  -
 tags:
-  - 
+  -
 #
 # Styling
 #
