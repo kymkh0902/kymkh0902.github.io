@@ -1,7 +1,7 @@
 ---
 layout: page
-subheadline:  "블로그 시작"
-title:  "딥러닝 학습을 위한 블로그 시작"
+subheadline:  "image detection"
+title:  "GoogleNet, Inception model"
 teaser: ""
 categories:
     - machine learning
@@ -40,7 +40,7 @@ computational bottlenects 를 해결하기 위한 방안으로 고안하였다�
 또한, 데이터의 확률 분포를 아주 큰 신경망으로 표현할 수 있다면 높은 상관성을 가지는 출력들과 이 때
 활성화되는 neuron들의 cluster 관계를 분석하여 최적의 topology를 구성할 수 있다고 한다.
 
-그런데, 컴퓨터 연산은 uniform distribution일 때 가장 효율적이어서 정반대의 문제에 봉착한다. (sparse는 비효율적) 
+그런데, 컴퓨터 연산은 uniform distribution일 때 가장 효율적이어서 정반대의 문제에 봉착한다. (sparse는 비효율적)
 이러한 문제를 Arora의 논문(http://proceedings.mlr.press/v32/arora14.pdf)을 보고 참고해서 아래와 같은 방법을 생각하였다.
 *sparsity는 결국 망 내의 연결을 줄이면서 세부적인 행렬 연산에서는 최대한 dense한 연산을 하도록 처리하는 것이다.*
 
