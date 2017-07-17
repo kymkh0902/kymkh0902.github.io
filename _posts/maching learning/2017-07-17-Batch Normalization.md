@@ -24,7 +24,7 @@ input이 모든 이전 layer의 parameter에 의한 영향을 받기 때문이�
 을 ***internal covariate shift*** 라고 한다.
 쉽게 예시를 들자면 sigmoid activation function의 경우를 생각해보자.
 ($$z=g(Wu+b)$$, \\[ g(x) = {1\over {1+\exp(-x)}} \\], \\[ W\\]는 Weight matrix, \\[b\\]는 bias,
-\\[u\\]는 layer input이다.)
+$$u$$는 layer input이다.)
 여기서, \\[x = Wu + b\\] 만약 \\[x\\]가 0보다 커지거나 작아지면 \\[g'(x)\\]는 0으로 가고, layer가 쌓이면 마찬가지로
 vanishing gradient에 의해 x가 saturated regime으로 이동하게 된다. 깊은 layer 학습이 진행됨에 따라 이렇게 input값의
 분포가 saturated regime으로 x의 차원이 이동해서 convergence에 느리게 도달하게 된다.
