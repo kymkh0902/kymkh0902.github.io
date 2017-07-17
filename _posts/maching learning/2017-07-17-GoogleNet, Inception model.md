@@ -57,9 +57,9 @@ training 중간에 가지를 내어 output을 내고 이 Loss(x0.3)를 최종 ou
 
 
 6. Result, Structure
+ILSVRC 결과 및 모델 구조 사진 첨부 예정. 
 
 7. Conclusion
-
 *Approximating the expected optimal sparse structure by readily available dense building
 block is a viable method for improving neural networks for computer vision*
-다시 한번 spasity에 대한 강조를 하고 있다. 
+다시 한번 spasity에 대한 강조를 하고 있다.
