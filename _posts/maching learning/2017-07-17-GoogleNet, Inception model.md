@@ -15,11 +15,11 @@ header: no
 - 아래 내용은 Going Deeper with Convolution 논문을 읽은 뒤에 요약 및 정리한 것이다.
 - 다른 모델들에서 가져온 컨셉들, 후에 개선을 위해 변경한 점들은 지속 업데이트 예정이다.
 
-1. introduction
+1. introduction <br>
 핵심적으로 이 논문에서 나타내고 있는 내용은 **inceptioon layer** 의 도입으로 쌓이는 layer
 에 의한 computational budget 해결, mobile, embedded computing을 위한 모델 개발 필요성 언급이다.
 
-2. Related Work
+2. Related Work <br>
 *Despite of concerns that max-pooling layers result in loss of accurate spatial information*
 ResNet에 이어서 pooling의 한계점에 대해서 언급하고 있는데 이 부분은 현재 pooling에 대한
 trend를 확인한 후에 기록할 예정이다.
@@ -30,7 +30,7 @@ computational bottlenects 를 해결하기 위한 방안으로 고안하였다�
 뒷 부분에 R-CNN에 관련한 내용이 나오는데 image segmentation, detection에 대한 부분은 관련
 논문을 읽고 마저 정리할 예정이다.
 
-3. Motivation and High Level Considerations
+3. Motivation and High Level Considerations <br>
 당시 trend는 neural network를 layer width, depth를 늘려 깊게 학습시키며 regularization을
 적당히 해주면 좋은 성능을 발휘하였다.
 
@@ -44,7 +44,7 @@ computational bottlenects 를 해결하기 위한 방안으로 고안하였다�
 이러한 문제를 Arora의 논문(http://proceedings.mlr.press/v32/arora14.pdf)을 보고 참고해서 아래와 같은 방법을 생각하였다.
 *sparsity는 결국 망 내의 연결을 줄이면서 세부적인 행렬 연산에서는 최대한 dense한 연산을 하도록 처리하는 것이다.*
 
-4. Architectural Details
+4. Architectural Details <br>
 *There will be a smaller number of more spatially spread out clusters that can be covered by convolutions
 over larger patches, and there will be a decreasing number of patches over larger and larger regions*
 위의 문제가 어떤 건지 제대로 이해가 안 된다. 위와 같은 patch-alignment 문제를 해결하기 위해 inception architecture
