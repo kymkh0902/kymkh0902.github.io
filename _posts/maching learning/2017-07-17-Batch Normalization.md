@@ -13,55 +13,23 @@ tags:
 header: no
 ---
 
-- GoogleNet은 Google에서 발표한 2014년도에 IRSVRC에서 1등을 차지한 모델이다.  
-- 아래 내용은 Going Deeper with Convolution 논문을 읽은 뒤에 요약 및 정리한 것이다.
-- 다른 모델들에서 가져온 컨셉들, 후에 개선을 위해 변경한 점들은 지속 업데이트 예정이다.
+- 2015년 ICML 2015에 publish된 논문이다.
 
-1. introduction <br>
-핵심적으로 이 논문에서 언급하는 내용은 **inceptioon layer** 의 도입으로 쌓이는 layer
-에 의한 computational budget 해결 및 mobile, embedded computing을 위한 모델 개발 필요성이다.
+1. introduction
+Deep learning에서 모델을 학습시킬 때 parallelism의 효율성을 살리기 위해 training시
+batch 대신 Stochastic Gradient Descent(SGD)를 사용한다.
+SGD는 간단하고 효과적인 대신 세심한 hyperparameter tuning이 필요한데 특히나 각 layer의
+input이 모든 이전 layer의 parameter에 의한 영향을 받기 때문이다.
+이렇게 layer내 input값이 영향을 받아 지속적으로 분포가 변해서 문제가 발생하는 것(saturation)
+을 ***internal covariate shift*** 라고 한다.
+쉽게 예시를 들자면 sigmoid activation function의 경우를 생각해보자.
+(\\[ z = g(Wu+b)\\], \\[ g(x) = {1\over {1+\exp(-x)}} \\], \\[ W\\]는 Weight matrix, \\[b\\]는 bias,
+\\[u\\]는 layer input이다.)
+여기서, \\[x = Wu + b\\] 만약 \\[x\\]가 0보다 커지거나 작아지면 \\[g'(x)\\]는 0으로 가고, layer가 쌓이면 마찬가지로
+vanishing gradient에 의해 x가 saturated regime으로 이동하게 된다. 깊은 layer 학습이 진행됨에 따라 이렇게 input값의
+분포가 saturated regime으로 x의 차원이 이동해서 convergence에 느리게 도달하게 된다.
+그래서 이런 nonlinearity input의 분포를 안정되게 해줄 수 있으면 optimizer가 saturated regime에 빠질 일도
+드물 것이고 training도 빨라질 것이라는게 논문의 주된 내용이다.
 
-2. Related Work <br>
-*Despite of concerns that max-pooling layers result in loss of accurate spatial information*
-ResNet에 이어서 pooling의 한계점에 대해서 언급하고 있는데 이 부분은 현재 pooling에 대한
-trend를 확인한 후에 기록할 예정이다.
-Inception layer를 Network in Network - Lin et al.의 접근법에서 착안하여 dimension reduction to
-computational bottlenects 를 해결하기 위한 방안으로 고안하였다고 언급하고 있다.
-뒷 부분에 R-CNN에 관련한 내용이 나오는데 image segmentation, detection에 대한 부분은 관련
-논문을 읽고 마저 정리할 예정이다.
-
-3. Motivation and High Level Considerations <br>
-당시 trend는 neural network를 layer width, depth를 늘려 깊게 학습시키면 좋은 성능을 발휘하였다.
-근데 깊게 학습할 경우에 overfitting과 computation resource의 문제가 생기는데 이를 둘 다 해결하기
-위해서 sparsity의 도입이 필요하다고 얘기하고 있다.(이를 위한 FC → Convolution 대체 필요.)
-또한, 데이터의 확률 분포를 아주 큰 신경망으로 표현할 수 있다면 높은 상관성을 가지는 출력들과 이 때
-활성화되는 neuron들의 cluster 관계를 분석하여 최적의 topology를 구성할 수 있다고 한다. Arora의 [논문](http://proceedings.mlr.press/v32/arora14.pdf "보기") 참조.
-그런데, 컴퓨터 연산은 uniform distribution일 때 가장 효율적이어서 정반대의 문제에 봉착한다. (sparse는 비효율적)
-이를 해결하기 위해 sparsity는 결국 망 내의 연결을 줄이면서 세부적인 행렬 연산에서는 최대한 dense한 연산을 하도록 해야 하는데
-기존에는 convolution을 활용해서 filter-level sparsity를 얻을 수 있었고, 다음 단계에로 inception architectuure를 연구 중이다.
-
-4. Architectural Details <br>
-*There will be a smaller number of more spatially spread out clusters that can be covered by convolutions
-over larger patches, and there will be a decreasing number of patches over larger and larger regions*
-위의 문제가 어떤 건지 제대로 이해가 안 된다. 위와 같은 patch-alignment 문제를 해결하기 위해 inception architecture
-내에선 1x1, 3x3, 5x5 filter size만 사용한다.
-inception module을 도입했을 때 문제가 3x3, 5x5 convolution 연산량이 크다는 점인데, 이를 해결하기 위해서 1x1 convolution이
-사용된다. (1x1 convolution → 3x3 convolution)
-1x1 convolution 개념이 매우 중요한데 연산을 쪼개서 진행할 경우에 parameter수를 줄여 dimension을 낮춰주고
-각 단계 별로 ReLu가 적용되어 non-linearity도 높혀준다.
-
-5. GoogleNet
-computational efficiency를 다시 한번 언급하면서 embedded의 중요성에 대해 얘기하고 있다.
-GoogleNet에서는 이전 버전의 모델에서 자주 사용되진 않는 average pooling이 사용되었다.
-그리고 auxiliary classifier라는 것도 등장하는데 regularization 효과를 주기 위함이다.
-training 중간에 가지를 내어 output을 내고 이 Loss(x0.3)를 최종 output의 Loss와 함께 게산하여 gradient를 update해준다.
-이런 구조를 통해서 layer가 깊어질 수록 overfitting이 되는 점을 완화시켜줄 수 있다.
-
-
-6. Result, Structure
-ILSVRC 결과 및 모델 구조 사진 첨부 예정.
-
-7. Conclusion
-*Approximating the expected optimal sparse structure by readily available dense building
-block is a viable method for improving neural networks for computer vision*
-다시 한번 spasity에 대한 강조를 하고 있다.
+Reference
+Ioffe, Sergey, and Christian Szegedy. ["Batch normalization: Accelerating deep network training by reducing internal covariate shift."](https://arxiv.org/pdf/1502.03167.pdf) arXiv preprint arXiv:1502.03167 (2015)
