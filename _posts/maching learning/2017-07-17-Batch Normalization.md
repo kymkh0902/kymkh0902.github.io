@@ -30,5 +30,12 @@ vanishing gradient에 의해 x가 saturated regime으로 이동하게 된다. �
 그래서 이런 nonlinearity input의 분포를 안정되게 해줄 수 있으면 optimizer가 saturated regime에 빠질 일도
 드물 것이고 training도 빨라질 것이라는게 논문의 주된 내용이다.
 
+2.
+
+3.
+
+4.
+
+
 Reference
 Ioffe, Sergey, and Christian Szegedy. ["Batch normalization: Accelerating deep network training by reducing internal covariate shift."](https://arxiv.org/pdf/1502.03167.pdf) arXiv preprint arXiv:1502.03167 (2015)
