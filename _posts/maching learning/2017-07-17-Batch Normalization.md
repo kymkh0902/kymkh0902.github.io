@@ -21,6 +21,7 @@ batch 대신 Stochastic Gradient Descent(SGD)를 사용한다.
 SGD는 간단하고 효과적인 대신 세심한 hyperparameter tuning이 필요한데 특히나 각 layer의
 input이 모든 이전 layer의 parameter에 의한 영향을 받기 때문이다.
 이렇게 layer내 input값이 영향을 받아 지속적으로 분포가 변해서 문제가 발생하는 것(saturation)
+$$ a + b $$ 
 을 ***internal covariate shift*** 라고 한다.
 쉽게 예시를 들자면 sigmoid activation function의 경우를 생각해보자.
 ($$z=g(Wu+b)$$, \\[ g(x) = {1\over {1+\exp(-x)}} \\], \\[ W\\]는 Weight matrix, \\[b\\]는 bias,
