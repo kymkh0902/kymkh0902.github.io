@@ -50,7 +50,7 @@ inception module을 도입했을 때 문제가 3x3, 5x5 convolution 연산량이
 1x1 convolution 개념이 매우 중요한데 연산을 쪼개서 진행할 경우에 parameter수를 줄여 dimension을 낮춰주고
 각 단계 별로 ReLu가 적용되어 non-linearity도 높혀준다.
 
-5. GoogleNet
+5. GoogleNet <br>
 computational efficiency를 다시 한번 언급하면서 embedded의 중요성에 대해 얘기하고 있다.
 GoogleNet에서는 이전 버전의 모델에서 자주 사용되진 않는 average pooling이 사용되었다.
 그리고 auxiliary classifier라는 것도 등장하는데 regularization 효과를 주기 위함이다.
@@ -58,14 +58,14 @@ training 중간에 가지를 내어 output을 내고 이 Loss(x0.3)를 최종 ou
 이런 구조를 통해서 layer가 깊어질 수록 overfitting이 되는 점을 완화시켜줄 수 있다.
 
 
-6. Result, Structure
+6. Result, Structure <br>
 ILSVRC 결과 및 모델 구조 사진 첨부 예정.
 
-7. Conclusion
+7. Conclusion <br>
 *Approximating the expected optimal sparse structure by readily available dense building
 block is a viable method for improving neural networks for computer vision*
 다시 한번 spasity에 대한 강조를 하고 있다.
 
 
-Reference
+Reference <br>
 Szegedy, Christian, et al. ["Going deeper with convolutions." Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition.](http://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Szegedy_Going_Deeper_With_2015_CVPR_paper.pdf), 2015.
