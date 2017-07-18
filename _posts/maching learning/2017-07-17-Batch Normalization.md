@@ -32,6 +32,9 @@ vanishing gradient에 의해 x가 saturated regime으로 이동하게 된다. �
 
 2.
 <p><span class="math">\[c=a+b\]</span></p>
+$$\frac{\partial Z}{\partial X} = ad + ae + af + bd + be+bf + cd + ce + cf$$
+
+
 3.
 
 4.
