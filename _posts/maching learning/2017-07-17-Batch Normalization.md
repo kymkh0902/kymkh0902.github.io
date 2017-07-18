@@ -31,7 +31,7 @@ vanishing gradient에 의해 x가 saturated regime으로 이동하게 된다. �
 드물 것이고 training도 빨라질 것이라는게 논문의 주된 내용이다.
 
 2.
-
+<p><span class="math">\[c=a+b\]</span></p>
 3.
 
 4.
