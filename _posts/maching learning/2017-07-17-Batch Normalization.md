@@ -12,6 +12,9 @@ tags:
     - Learning method
 header: no
 ---
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 
 - 2015년 ICML 2015에 publish된 논문이다.
 
