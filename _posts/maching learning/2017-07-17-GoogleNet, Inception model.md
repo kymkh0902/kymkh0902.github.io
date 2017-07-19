@@ -54,7 +54,7 @@ inception module을 도입했을 때 문제가 3x3, 5x5 convolution 연산량이
 computational efficiency를 다시 한번 언급하면서 embedded의 중요성에 대해 얘기하고 있다.
 GoogleNet에서는 이전 버전의 모델에서 자주 사용되진 않는 average pooling이 사용되었다.
 그리고 auxiliary classifier라는 것도 등장하는데 regularization 효과를 주기 위함이다.
-training 중간에 가지를 내어 output을 내고 이 Loss(x0.3)를 최종 output의 Loss와 함께 게산하여 gradient를 update해준다.
+training 중간에 가지를 내어 output을 내고 이 Loss(x0.3)를 최종 output의 Loss와 함께 계산하여 gradient를 update해준다.
 이런 구조를 통해서 layer가 깊어질 수록 overfitting이 되는 점을 완화시켜줄 수 있다.
 
 
@@ -67,5 +67,5 @@ block is a viable method for improving neural networks for computer vision*
 다시 한번 spasity에 대한 강조를 하고 있다.
 
 
-Reference <br>
+Reference: <br>
 Szegedy, Christian, et al. ["Going deeper with convolutions." Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition.](http://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Szegedy_Going_Deeper_With_2015_CVPR_paper.pdf), 2015.

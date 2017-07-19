@@ -33,5 +33,5 @@ vanishing gradient에 의해 $$x$$가 saturated regime으로 이동하게 된다
 2.
 
 
-Reference <br>
+Reference: <br>
 Ioffe, Sergey, and Christian Szegedy. ["Batch normalization: Accelerating deep network training by reducing internal covariate shift."](https://arxiv.org/pdf/1502.03167.pdf) arXiv preprint arXiv:1502.03167 (2015)
