@@ -46,7 +46,7 @@ RNN이 무한히 전개된다고 생각했을 때를 생각해보면 $$N \to \in
 $$\theta - \alpha \sum_{\tau=t}^{\infty} \frac{\partial L_\tau}{\partial \theta} = \theta - \alpha\left( \sum_{\tau=t}^{t+T} \frac{\partial L_{\tau}}{\partial \theta} + \left( \sum_{\tau=T+1}^{\infty}\frac{\partial L_{\tau}}{\partial \theta}\right)\frac{\partial h_T}{\partial \theta}\right) = \theta -\alpha\left( \sum_{\tau=t}^{t+T} \frac{\partial L_{\tau}}{\partial \theta} + \delta_T \frac{\partial h_T}{\partial \theta}\right)$$
 이렇게 했을 때 단점은 RNN의 weight가 학습할 수 있는 time horizon 구간, temporal dependency를 제한한다.
 이런 단점을 DNI로 해결할 수 있는데 방법은 아래 그림과 같이 **No backprop** 구간에 **synthetic gradient** 를 도입하는 것이다.
-[RNN + DNI](https://storage.googleapis.com/deepmind-live-cms-alt/images/3-9.width-1500_1ahGJNx.png) <br><br>
+![RNN + DNI](https://storage.googleapis.com/deepmind-live-cms-alt/images/3-9.width-1500_1ahGJNx.png) <br><br>
 이렇게 했을 때 time step간에 gradient가 전달이되어 synthetic gradient가 정확한 값으로 적용되었을 경우에 infinitely unrolled RNN에서
 backpropagation을 한 효과, 즉 longer temporal dependencyy를 얻을 수 있다.
 위 DNI protocol을 설명 시에 언급했던 synthetic gradient에 대한 training도 중요한데(***Auxiliary task***) true gradient를 실제로 얻는게 intractable하므로
