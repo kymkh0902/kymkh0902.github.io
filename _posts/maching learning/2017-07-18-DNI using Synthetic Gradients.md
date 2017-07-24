@@ -35,6 +35,8 @@ asynchronously learning 할 수 있는 high-level communication protocol을 먼�
 $$(f_A,f_B:\ model,\ h_A: \ output\ of\ model A,\ M_B: feedback\ model, c: other\ information,\ S_B:\ state\ of\ B,\ \hat \delta_A: synthetic\ gradient,\ \|\delta_A - \hat \delta_A\|:\ Loss\ for\ M_B)$$ <br><br>
 위 protocol의 진행 과정을 설명하자면 $$M_B$$라는 $$B$$에 딸린 utility에 현재 running되는 정보, $$h_A, S_B, c$$를 전달하여 synthetic error $$\hat \delta_A$$를 구해서 즉시 $$f_A$$를 update한다. 그리고 끝까지 forward propagation, $$f_A$$까지 back propagation이 되어 얻어진 true utility값 $$\delta_A$$ 과 비교해서 $$M_B$$를 update한다. <br>
 이 protocol에서 중요한 내용은 $$f_A$$와 $$f_B$$가 ***decoupled하게 update된 다*** 는 점이며 이를 활용해서 Decoupled Neural Interfaces(DNI)를 구상할 수 있다. <br>
+아래 그림은 위에서 설명한 과정이 순서대로 일어나는 과정이다. (참조)
+![DNI flow](https://storage.googleapis.com/deepmind-live-cms-alt/documents/3-6.gif)
 
 #### 2.1 Synthetic Gradient for Recurrent Networks
 RNN에 적용한 결과를 설명한다. <br>
@@ -53,6 +55,8 @@ backpropagation을 한 효과, 즉 longer temporal dependencyy를 얻을 수 있
 target gradient라는 개념을 사용해서 bootstrapping으로 구한다고 한다. (***나중에 배우면 update 예정***)
 
 #### 2.2 Synthetic Gradient for Feed-Forward Networks
+Update 예정.
+
 
 Reference: <br>
 Jaderberg, Max, et al. ["Decoupled neural interfaces using synthetic gradients."](https://arxiv.org/pdf/1608.05343.pdf) arXiv preprint arXiv:1608.05343 (2016).

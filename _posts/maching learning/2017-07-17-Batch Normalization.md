@@ -14,7 +14,7 @@ header: no
 ---
 - 2015년 ICML 2015에 publish된 논문이다.
 
-1. introduction <br>
+#### 1. introduction <br>
 Deep learning에서 모델을 학습시킬 때 parallelism의 효율성을 살리기 위해 training시
 batch 대신 Stochastic Gradient Descent(SGD)를 사용한다.
 SGD는 간단하고 효과적인 대신 세심한 hyperparameter tuning이 필요한데 특히나 각 layer의
