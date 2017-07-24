@@ -17,7 +17,7 @@ header: no
 - 아래 내용은 Going Deeper with Convolution 논문을 읽은 뒤에 요약 및 정리한 것이다.
 - 다른 모델들에서 가져온 컨셉들, 후에 개선을 위해 변경한 점들은 지속 업데이트 예정이다.
 
-#### 1. introduction <br>
+#### 1. Introduction <br>
 핵심적으로 이 논문에서 언급하는 내용은 **inceptioon layer** 의 도입으로 쌓이는 layer
 에 의한 computational budget 해결 및 mobile, embedded computing을 위한 모델 개발 필요성이다.
 
