@@ -52,7 +52,7 @@ over larger patches, and there will be a decreasing number of patches over large
 내에선 1X1, 3X3, 5X5 filter size만 사용하고 pooling도 효과가 있을까 해서 넣었다.
 inception module을 도입했을 때 문제가 3x3, 5x5 convolution 연산량이 크다는 점인데, 이를 해결하기 위해서 1x1 convolution이
 사용된다. (3X3 → 1X1 + 3X3, 아래 그림 참조.) <br>
-[figure2](https://hackathonprojects.files.wordpress.com/2016/09/inception_implement.png?w=649&h=337)<br><br>
+![figure2](https://hackathonprojects.files.wordpress.com/2016/09/inception_implement.png?w=649&h=337)<br><br>
 1x1 convolution 개념이 매우 중요한데 연산을 쪼개서 진행할 경우에 parameter수를 줄여 dimension을 낮춰주고
 각 단계 별로 ReLu가 적용되어 non-linearity도 높혀주기 때문이다.<br>
 결국 inception 구조의 이점은 두가지로 정리할 수 있다. 첫째, 연산량의 큰 증가 없이 넓은 망을 구축할 수 있다는 점.
@@ -70,7 +70,7 @@ GoogleNet의 상세한 구조, parameter수는 아래 표에 잘 나타나있다
 그리고 새로운 항목으로 auxiliary classifier가 등장하는데 regularization 효과를 주기 위한 용도로 사용되었다.
 구조는 간단하게 training 중간에 가지를 내어 output을 내고 이 Loss(x0.3)를 최종 output의 Loss와 함께 계산하여 gradient를 update해준다.
 이 regularizer는 물론 test할 때는 사용하지 않는다. 아래 그림에서 우측 부분이 auxiliary classifier이며 전반적인
-구조를 참조하기 바란다.
+구조를 참조하기 바란다. <br>
 ![Figure3](https://qph.ec.quoracdn.net/main-qimg-0ed62ffe5bea704d591887c768e2ca14) <br><br>
 
 #### 6. Training Methodology
