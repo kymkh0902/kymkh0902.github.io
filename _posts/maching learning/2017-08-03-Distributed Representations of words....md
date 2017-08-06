@@ -30,8 +30,8 @@ maximize할 objective function은 아래와 같다. <br>
 $${1 \above 1pt T} \sum_{t=1}^T \sum_{-c\leqq j \leqq c, j\neq 0} log\ p(w_{t+j}|w_t)$$ <br>
 $$(c : window\ size,\ w_t : center\ word)$$ <br>
 그리고 구하고자 하는 center word일 때 output word일 확률은 아래와 같이 정의한다.
-$$p(w_O|w_I) = {exp({{v'}_{w_O}}^T v_{w_I}) \above 1pt \sum_{w=1}^W exp({{v'}_w}^T v_{w_I})}$$ <br>
-$$(v_w,{v'}_w :\ "input"\ and\ "output"\ vector\ representations\ of\ w,\ W: number\ of\ words\ in\ vocabulary)$$
+$$p(w_O|w_I) = {exp({v'_{w_O}}^T v_{w_I}) \above 1pt \sum_{w=1}^W exp({v'_w}^T v_{w_I})}$$ <br>
+$$(v_w,v'_w :\ "input"\ and\ "output"\ vector\ representations\ of\ w,\ W: number\ of\ words\ in\ vocabulary)$$ 
 
 #### 2.1 Hiearchical Softmax <br>
 $$\nabla log\ p(w_O|w_I)$$를 구할 때의 연산량이 $$W$$에 비례하는데 $$W$$는 보통 $$10^5-10^7$$ 정도로 큰 편이라
