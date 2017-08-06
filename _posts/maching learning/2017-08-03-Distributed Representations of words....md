@@ -31,7 +31,7 @@ $${1 \above 1pt T} \sum_{t=1}^T \sum_{-c\leqq j \leqq c, j\neq 0} log\ p(w_{t+j}
 $$(c : window\ size,\ w_t : center\ word)$$ <br>
 그리고 구하고자 하는 center word일 때 output word일 확률은 아래와 같이 정의한다.
 $$p(w_O|w_I) = {exp({v'_{w_O}}^T v_{w_I}) \above 1pt \sum_{w=1}^W exp({v'_w}^T v_{w_I})}$$ <br>
-$$(v_w,v'_w :\ "input"\ and\ "output"\ vector\ representations\ of\ w,\ W: number\ of\ words\ in\ vocabulary)$$ 
+$$(v_w,v'_w :\ "input"\ and\ "output"\ vector\ representations\ of\ w,\ W: number\ of\ words\ in\ vocabulary)$$
 
 #### 2.1 Hiearchical Softmax <br>
 $$\nabla log\ p(w_O|w_I)$$를 구할 때의 연산량이 $$W$$에 비례하는데 $$W$$는 보통 $$10^5-10^7$$ 정도로 큰 편이라
@@ -43,7 +43,7 @@ $$\nabla log\ p(w_O|w_I)$$를 구할 때의 연산량이 $$W$$에 비례하는�
 Noise Contrastive Estimation(NCE)에서 출발한 개념으로 NCE는 좋은 모델은 *Should be able to differentiate
 data from noise by means of logistic regression* 해야 한다고 가정하고 있다.
 그렇게 나온 Negative Sampling의 objective function은 아래와 같다.
-$$log\ \sigma({{v'}_{w_O}}^T v_{w_I}) + \sum_{i=1}^k \mathbb{E}_{w_i} \sim P_n(w)[log\ \sigma(-{{v'}_{w_i}}^Tv_{w_I})]$$ <br>
+$$log\ \sigma({v'_{w_O}}^T v_{w_I}) + \sum_{i=1}^k \mathbb{E}_{w_i} \sim P_n(w)[log\ \sigma(-{v'_{w_i}}^Tv_{w_I})]$$ <br>
 (k : #\ of\ negative\ samples) <br>
 기존 Skip-gram 모델의 Objective function을 대체하는 이 식을 보자.
 먼저 input data(center word)에 대해서 target word를 포함 추가 k개의 오답(negative sample)을 $$P_n(w)$$의 확률로 sampling한다.
