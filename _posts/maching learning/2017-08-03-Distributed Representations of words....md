@@ -47,7 +47,7 @@ $$log\ \sigma({v'_{w_O}}^T v_{w_I}) + \sum_{i=1}^k \mathbb{E}_{w_i} \sim P_n(w)[
 (k : #\ of\ negative\ samples) <br>
 기존 Skip-gram 모델의 Objective function을 대체하는 이 식을 보자.
 먼저 input data(center word)에 대해서 target word를 포함 추가 k개의 오답(negative sample)을 $$P_n(w)$$의 확률로 sampling한다.
-maximize하는게 목적이므로 target word가 될 확률($$\sigma({{v'}_{w_O}}^T v_{w_I})$$)을 최대로 하면서
+maximize하는게 목적이므로 target word가 될 확률($$\sigma({v'_{w_O}}^T v_{w_I})$$)을 최대로 하면서
 negative word들의 확률 값에 샘플링 확률을 곱한 값을 최소로 갖는 $$v',v$$를 찾게 된다.
 결국 앞선 식이랑 비교했을 때 굳이 negative 값들을 전부 확인 할 필요 없이 몇 개만 확인하자는 게
 주요 내용이다.
